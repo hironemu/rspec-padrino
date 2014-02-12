@@ -4,31 +4,31 @@ require File.expand_path(File.dirname(__FILE__) + '/mock_app_helper')
 describe "Integrations" do
   context "routing" do
     it "routes to /foo" do
-      {:get => "/foo"}.should route_to(:foo, :index)
+      {:get => "/foo"}.should route_to(:"foo index")
     end
 
     it "should not route to /bar" do
-      {:get => "/bar"}.should_not route_to(:bar, :index)
+      {:get => "/bar"}.should_not route_to(:"bar index")
     end
 
     it "routes to /foo/create" do
-      {:post => "/foo/create"}.should route_to(:foo, :create)
+      {:post => "/foo/create"}.should route_to(:"foo create")
     end
 
     it "routes to /foo/assign" do
-      {:get => "/foo/assign"}.should route_to(:foo, :assign)
+      {:get => "/foo/assign"}.should route_to(:"foo assign")
     end
 
     it "routes to /foo/show/1" do
-      {:get => "/foo/show/1"}.should route_to(:foo, :show, :id => "1")
+      {:get => "/foo/show/1"}.should route_to(:"foo show", :id => "1")
     end
 
     it "routes to /custom/123/path" do
-      {:get => "/custom/123/path"}.should route_to(:foo, :show2, :id => "123")
+      {:get => "/custom/123/path"}.should route_to(:"foo show2", :id => "123")
     end
 
     it "routes to /foo/assign?par=ams" do
-      {:get => "/foo/assign?par=ams"}.should route_to(:foo, :assign, :par => "ams")
+      {:get => "/foo/assign?par=ams"}.should route_to(:"foo assign", :par => "ams")
     end
 
     it "routes to /foo/errored if it has error", pending: "Fails only in travis ci, passes locally" do
